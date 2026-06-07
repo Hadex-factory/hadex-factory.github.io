@@ -73,7 +73,8 @@ def login_required(f):
 @app.route("/")
 def index():
     items = sorted(load_db(), key=lambda x: x.get("uploaded", ""), reverse=True)
-    return render_template("index.html", items=items)
+    total_downloads = sum(i.get("downloads", 0) for i in items)
+    return render_template("index.html", items=items, total_downloads=total_downloads)
 
 
 @app.route("/download/<file_id>")

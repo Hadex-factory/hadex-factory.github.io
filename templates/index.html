@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-  <h2 style="margin-bottom:6px;">Downloads</h2>
-  <p style="color:var(--muted);font-size:14px;margin-bottom:18px;">Free software by Hadex. Click to download.</p>
+  <div class="hero">
+    <h1>⚡ Hadex Factory</h1>
+    <p>Free software, built by Hadex. Download what you need — no signup, no ads.</p>
+    <div class="stats">
+      <div class="stat"><b>{{ items|length }}</b><small>Programs</small></div>
+      <div class="stat"><b>{{ total_downloads }}</b><small>Downloads</small></div>
+    </div>
+  </div>
 
   {% if items %}
     <input type="text" id="search" placeholder="🔍 Search software..."
